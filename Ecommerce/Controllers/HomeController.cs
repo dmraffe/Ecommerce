@@ -1,4 +1,6 @@
 ﻿using Ecommerce.Models;
+using Ecommerce.Service.Definicion;
+using Ecommerce.Service.Implementacion;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,11 +9,13 @@ namespace Ecommerce.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductosnterface _Productosnterface;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductosnterface  Productosnterface)
         {
             _logger = logger;
 
+            _Productosnterface = Productosnterface;
             Inicializer();
         }
 
@@ -27,7 +31,7 @@ namespace Ecommerce.Controllers
         public IActionResult Index()
         {
             ViewBag.Index = "active";
-            return View();
+            return View(_Productosnterface.ProductosPantallaPrincipal());
         }
 
         public IActionResult Productos()

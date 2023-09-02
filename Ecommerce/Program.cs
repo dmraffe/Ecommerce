@@ -1,4 +1,6 @@
 using Ecommerce.Repository;
+using Ecommerce.Service.Definicion;
+using Ecommerce.Service.Implementacion;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +10,7 @@ builder.Services.AddControllersWithViews();
 var appSettings = builder.Configuration.Get<AppSettings>();
 builder.Services.Configure<AppSettings>(builder.Configuration);
 builder.Services.AddDbContext<EcommerceContext>(options => options.UseSqlServer(appSettings.ConnectionString));
-
+builder.Services.AddTransient<IProductosnterface, Productosnterface>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

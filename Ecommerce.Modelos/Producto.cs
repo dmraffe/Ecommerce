@@ -14,5 +14,13 @@
         public bool Estatus { get; set; }
 
         public int Cantidad { get; set; }
+
+        public int CantidaddeVentas { get; set; }
+
+        public bool Promocionado { get; set; }
+
+        public decimal Calificacion { get; set; }
+
+
     }
 }

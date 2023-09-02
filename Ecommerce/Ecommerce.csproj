@@ -16,4 +16,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ecommerce.Modelos\Ecommerce.Modelos.csproj" />
+    <ProjectReference Include="..\Ecommerce.Service\Ecommerce.Service.csproj" />
+  </ItemGroup>
+
 </Project>
