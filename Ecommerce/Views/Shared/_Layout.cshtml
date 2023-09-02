@@ -6,44 +6,94 @@
     <title>@ViewData["Title"] - Ecommerce</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/flex-slider.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fontawesome.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/owl.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/templatemo-sixteen.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/Ecommerce.styles.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ecommerce</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+<body style="display:contents">
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="~/Home/index"><h2>Sixteen <em>Clothing</em></h2></a>
+                
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item  @ViewBag.Index ">
+
+                            @Html.ActionLink("Home","index","Home","",new {@class = "nav-link"})
+                            
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item @ViewBag.Producto">
+                            @Html.ActionLink("Our Products","Productos","Home","",new {@class = "nav-link"})
+                        </li>
+                        <li class="nav-item @ViewBag.About">
+                            @Html.ActionLink("About Us","About","Home","",new {@class = "nav-link"})
+                        </li>
+                        <li class="nav-item @ViewBag.Contact">
+                            @Html.ActionLink("Contact Us","Contact","Home","",new {@class = "nav-link"})
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+ 
             @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+
+
+    <footer>
         <div class="container">
-            &copy; 2023 - Ecommerce - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inner-content">
+                        <p>
+                            Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+
+                            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/accordions.js" asp-append-version="true"></script>
+    <script src="~/js/custom.js" asp-append-version="true"></script>
+    <script src="~/js/isotope.js" asp-append-version="true"></script>
+    <script src="~/js/owl.js" asp-append-version="true"></script>
+    <script src="~/js/slick.js" asp-append-version="true"></script>
+
+
+    <script language="text/Javascript">
+        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+        function clearField(t) {                   //declaring the array outside of the
+            if (!cleared[t.id]) {                      // function makes it static and global
+                cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                t.value = '';         // with more chance of typos
+                t.style.color = '#fff';
+            }
+        }
+    </script>
 </body>
 </html>

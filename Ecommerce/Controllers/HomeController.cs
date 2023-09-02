@@ -11,10 +11,41 @@ namespace Ecommerce.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+
+            Inicializer();
+        }
+
+        private void Inicializer()
+        {
+            ViewBag.Index = "";
+            ViewBag.Producto = "";
+            ViewBag.About = "";
+            ViewBag.Contact = "";
+
         }
 
         public IActionResult Index()
         {
+            ViewBag.Index = "active";
+            return View();
+        }
+
+        public IActionResult Productos()
+        {
+            ViewBag.Producto = "active";
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewBag.About = "active";
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+
+            ViewBag.Contact = "active";
             return View();
         }
 
