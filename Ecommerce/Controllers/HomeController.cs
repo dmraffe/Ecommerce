@@ -100,8 +100,45 @@ namespace Ecommerce.Controllers
             }
             _ordenesInterface.GuardarOrdernProducto(orden, producto);
 
+            var ModeloCarrito = _ordenesInterface.ObtenerCarritoCookie(identificador);
+
             Response.Cookies.Append(Cookie, identificador);
-            return View();
+            return View(ModeloCarrito);
+        }
+
+
+        public IActionResult carrito()
+        {
+            string identificador = string.Empty;
+
+            if (Request.Cookies.Any(a => a.Key == Cookie))
+            {
+                identificador = Request.Cookies[Cookie].ToString();
+
+                var ModeloCarrito = _ordenesInterface.ObtenerCarritoCookie(identificador);
+
+
+                if (ModeloCarrito != null)
+                {
+                    return View("AddCar", ModeloCarrito);
+                }
+                return NotFound();
+            }
+
+            return NotFound();
+        }
+
+
+        public IActionResult SaveCard()
+        {
+            string identificador = Request.Cookies[Cookie].ToString();
+            var orden = _ordenesInterface.ObtenerOrdernIdentificador(identificador);
+            orden.Estatus = "success";
+            _ordenesInterface.ActualizarOrdern(orden);
+            var ModeloCarrito = _ordenesInterface.ObtenerCarritoCookie(identificador);
+
+            Response.Cookies.Delete(Cookie);
+            return View(ModeloCarrito);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

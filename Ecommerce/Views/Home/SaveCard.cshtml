@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewData["Title"] = "AddCar";
+    ViewData["Title"] = "SaveCard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @model Ecommerce.Modelos.Carrito
 <h1>AddCar</h1>
 
@@ -11,7 +12,7 @@
 <div class="container" style="margin-top:40px">
 
     <div class="row">
-         
+
         <div class="col-3">Nombre</div>
         <div class="col-3">Descripion</div>
         <div class="col-3">Precio</div>
@@ -36,10 +37,6 @@
         <div class="col-10">@Model.Total()</div>
     </div>
 
-    <div class="row">
-        <div class="col-10">
-         <a href="./SaveCard" class="btn-primary">Save Card</a>
-         </div>
-    </div>
+     
 
 </div>
