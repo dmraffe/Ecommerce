@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Ecommerce.Modelos.VistadeProducto
+<style>
+    .flexbox-container {
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+    }
+
+        .flexbox-container > div {
+            width: 50%;
+            padding: 10px;
+        }
+
+            .flexbox-container > div:first-child {
+                margin-right: 20px;
+            }
+</style>
+
+<div class="container" style="margin-top: 100px;">
+ 
+
+<div class="flexbox-container">
+    <div>
+        <h3>Column 1 </h3>
+   </div>
+    <div>
+         <p>Nombre</p>
+         <p>@Model.nombre</p>
+
+            <p>Descripcion</p>
+            <p>@Model.descripcion</p>
+
+            <p>Precio</p>
+            <p>@Model.precio</p>
+    </div>
+</div>
+</div>

@@ -1,4 +1,5 @@
-﻿using Ecommerce.Models;
+﻿using Ecommerce.Modelos;
+using Ecommerce.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,9 @@ namespace Ecommerce.Service.Definicion
     {
 
         public List<Producto> ProductosPantallaPrincipal();
+
+        public  Producto Producto(int id);
+
+        public VistadeProducto ObtenerProducto(int id);
     }
 }

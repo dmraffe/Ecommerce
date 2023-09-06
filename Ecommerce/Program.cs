@@ -11,6 +11,8 @@ var appSettings = builder.Configuration.Get<AppSettings>();
 builder.Services.Configure<AppSettings>(builder.Configuration);
 builder.Services.AddDbContext<EcommerceContext>(options => options.UseSqlServer(appSettings.ConnectionString));
 builder.Services.AddTransient<IProductosnterface, Productosnterface>();
+
+builder.Services.AddTransient<IOrdenesInterface, OrdenInterface>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

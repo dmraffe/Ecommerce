@@ -19,6 +19,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Ecommerce.Modelos\Ecommerce.Modelos.csproj" />
     <ProjectReference Include="..\Ecommerce.Service\Ecommerce.Service.csproj" />
+    <ProjectReference Include="..\Ecommerces.Repositorio\Ecommerces.Repositorio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\" />
   </ItemGroup>
 
 </Project>
